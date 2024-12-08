@@ -1,8 +1,16 @@
 import React from 'react'
+import { Route, Switch } from 'wouter'
+import mainPage from './views/mainPage'
+import Navbar from './components/navbar'
 
 function App() {
   return (
-    <h1 className='text-3xl bg-red font-radikal'>HOU YI</h1>
+    <>
+    <Navbar />
+      <Switch>
+        <Route path="/" component={mainPage}/>
+      </Switch>
+    </>
   )
 }
 
