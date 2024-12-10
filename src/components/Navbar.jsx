@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Link } from 'wouter';
-import { FaHome, FaGamepad, FaTrophy, FaQuestionCircle, FaCalendarAlt } from 'react-icons/fa';
+import { FaHome, FaGamepad, FaTrophy, FaQuestionCircle } from 'react-icons/fa';
 
 export default function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -10,7 +10,7 @@ export default function Navbar() {
   };
 
   return (
-    <nav className="bg-[#f2be61] text-[#8f6721] shadow-lg">
+    <nav className="bg-[#050505] text-[#8f6721] shadow-lg">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
           <div className="flex items-center">
@@ -18,37 +18,37 @@ export default function Navbar() {
               <img 
                 src="/assets/img/HOKDLE.png" 
                 alt="HoKdle Logo" 
-                className="w-36 h-36"
+                className="w-auto h-16"
               />
             </Link>
           </div>
 
           {/* Desktop Menu */}
           <div className="hidden md:block">
-            <div className="ml-10 flex items-baseline space-x-4">
+            <div className="ml-10 flex items-baseline space-x-4 select-none">
               <Link 
                 to="/" 
-                className="hover:bg-[#8f6721] transition ease-out delay-50 px-3 py-2 rounded-md flex items-center text-[#8f6721] hover:text-white"
+                className="hover-border transition-all ease-out delay-100 rounded-md flex items-center text-2xl font-radikal font-light text-white hover:text-[#F4D28F]"
               >
-                <FaHome className="mr-2" /> Home
-              </Link>
-              <Link 
-                to="/unlimited" 
-                className="hover:bg-[#8f6721] transition ease-out delay-50 px-3 py-2 rounded-md flex items-center text-[#8f6721] hover:text-white"
-              >
-                <FaGamepad className="mr-2" /> Unlimited
+                <span>Home</span>
               </Link>
               <Link 
                 to="/daily" 
-                className="hover:bg-[#8f6721] transition ease-out delay-50 px-3 py-2 rounded-md flex items-center text-[#8f6721] hover:text-white"
+                className="hover-border transition-all ease-out delay-100 rounded-md flex items-center text-2xl font-radikal text-white hover:text-[#F4D28F]"
               >
-                <FaCalendarAlt className="mr-2" /> Daily
+                <span>Classic</span>
+              </Link>
+              <Link 
+                to="/infinity" 
+                className="hover-border transition-all ease-out delay-100 rounded-md flex items-center text-2xl font-radikal text-white hover:text-[#F4D28F]"
+              >
+                <span>Infinity</span>
               </Link>
               <Link 
                 to="/help" 
-                className="hover:bg-[#8f6721] transition ease-out delay-50 px-3 py-2 rounded-md flex items-center text-[#8f6721] hover:text-white"
+                className="hover-border transition-all ease-out delay-100 rounded-md flex items-center text-2xl font-radikal text-white hover:text-[#F4D28F]"
               >
-                <FaQuestionCircle className="mr-2" /> Help
+                <span>Help</span>
               </Link>
             </div>
           </div>
@@ -71,27 +71,27 @@ export default function Navbar() {
             <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
               <Link 
                 to="/" 
-                className="hover:bg-[#f2be61] block px-3 py-2 rounded-md flex items-center text-[#fffefb] "
+                className="hover-border hover:bg-[#f2be61] block px-3 py-2 rounded-md flex items-center text-[#fffefb]"
               >
-                <FaHome className="mr-2" /> Home
+                <FaHome className="mr-2" /> <span>Home</span>
               </Link>
               <Link 
                 to="/daily" 
-                className="hover:bg-[#f2be61] block px-3 py-2 rounded-md flex items-center text-[#8f6721]"
+                className="hover-border hover:bg-[#f2be61] block px-3 py-2 rounded-md flex items-center text-[#8f6721]"
               >
-                <FaGamepad className="mr-2" /> Daily
+                <FaGamepad className="mr-2" /> <span>Daily</span>
               </Link>
               <Link 
                 to="/unlimited" 
-                className="hover:bg-[#f2be61] block px-3 py-2 rounded-md flex items-center text-[#8f6721]"
+                className="hover-border hover:bg-[#f2be61] block px-3 py-2 rounded-md flex items-center text-[#8f6721]"
               >
-                <FaTrophy className="mr-2" /> Unlimited
+                <FaTrophy className="mr-2" /> <span>Unlimited</span>
               </Link>
               <Link 
                 to="/help" 
-                className="hover:bg-[#f2be61] block px-3 py-2 rounded-md flex items-center text-[#8f6721]"
+                className="hover-border hover:bg-[#f2be61] block px-3 py-2 rounded-md flex items-center text-[#8f6721]"
               >
-                <FaQuestionCircle className="mr-2" /> Help
+                <FaQuestionCircle className="mr-2" /> <span>Help</span>
               </Link>
             </div>
           </div>

@@ -4,7 +4,10 @@ export default {
   theme: {
     extend: {
       fontFamily: {
-        radikal: ['Radikal']
+        radikal: ['Radikal Bold', 'sans-serif']
+      },
+      backgroundImage: {
+        'hero-mainpage': "url('/assets/img/hok-pc.jpg')",
       }
     },
   },

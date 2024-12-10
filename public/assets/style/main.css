@@ -1,9 +1,64 @@
 @tailwind base;
 @tailwind components;
-
-@font-face {
-    font-family: 'Radikal';
-    src: url("../fonts/Radikal.otf") format("otf");
-}
-
 @tailwind utilities;
+
+@layer components {
+  .hover-border {
+    position: relative;
+    padding: 0.5rem 1rem;
+  }
+
+  .hover-border::before,
+  .hover-border::after,
+  .hover-border span::before,
+  .hover-border span::after {
+    content: '';
+    position: absolute;
+    background: #F4D28F; /* Changez la couleur si nécessaire */
+    transition: all 0.4s ease-out;
+  }
+
+  /* Top and bottom borders */
+  .hover-border::before,
+  .hover-border::after {
+    height: 2px;
+    width: 0;
+  }
+
+  .hover-border::before {
+    top: 0;
+    left: 0;
+  }
+
+  .hover-border::after {
+    bottom: 0;
+    right: 0;
+  }
+
+  /* Left and right borders */
+  .hover-border span::before,
+  .hover-border span::after {
+    width: 2px;
+    height: 0;
+  }
+
+  .hover-border span::before {
+    top: 0;
+    left: 0;
+  }
+
+  .hover-border span::after {
+    bottom: 0;
+    right: 0;
+  }
+
+  .hover-border:hover::before,
+  .hover-border:hover::after {
+    width: 100%;
+  }
+
+  .hover-border:hover span::before,
+  .hover-border:hover span::after {
+    height: 100%;
+  }
+}
