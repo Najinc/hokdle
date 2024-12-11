@@ -8,6 +8,7 @@ const SearchBar = ({ data }) => {
   const [isCorrect, setIsCorrect] = useState(false);
   const [showConfetti, setShowConfetti] = useState(false);
   const [targetHero, setTargetHero] = useState(null);
+  const [revealedAttempts, setRevealedAttempts] = useState({});
 
   useEffect(() => {
     const newHero = data[Math.floor(Math.random() * data.length)];
@@ -99,15 +100,57 @@ const SearchBar = ({ data }) => {
     setShowConfetti(false);
     setSearchTerm('');
     setFilteredData([]);
+    setRevealedAttempts({});
   };
 
-  const renderAttempt = (attempt) => {
+  useEffect(() => {
+    if (attempts.length > 0) {
+      const newRevealedAttempts = {...revealedAttempts};
+      attempts.forEach((attempt, index) => {
+        if (!newRevealedAttempts[index]) {
+          newRevealedAttempts[index] = {
+            hero: true,
+            region: false,
+            lane: false,
+            skillset: false,
+            height: false
+          };
+        }
+      });
+      setRevealedAttempts(newRevealedAttempts);
+      attempts.forEach((attempt, index) => {
+        const characteristics = ['region', 'lane', 'skillset', 'height'];
+        characteristics.forEach((char, charIndex) => {
+          setTimeout(() => {
+            setRevealedAttempts(prev => ({
+              ...prev,
+              [index]: {
+                ...prev[index],
+                [char]: true
+              }
+            }));
+
+          }, (charIndex + 1) * 1000);
+        });
+      });
+    }
+  }, [attempts]);
+
+  const renderAttempt = (attempt, index) => {
     const characteristics = [
       { key: 'region', label: 'Region' },
       { key: 'lane', label: 'Lane' },
       { key: 'skillset', label: 'Skillset' },
       { key: 'height', label: 'Height' }
     ];
+
+    const attemptRevealed = revealedAttempts[index] || {
+      hero: false,
+      region: false,
+      lane: false,
+      skillset: false,
+      height: false
+    };
 
     return (
       <div className="w-full grid grid-cols-5 gap-2 mb-2 items-center">
@@ -123,14 +166,19 @@ const SearchBar = ({ data }) => {
             ? attempt.hero[char.key].join(', ') 
             : attempt.hero[char.key];
           
-          return (
-            <div 
-              key={char.key} 
-              className={`col-span-1 p-2 text-center text-white h-16 flex items-center justify-center ${getComparisonColor(attempt.comparison[char.key])}`}
-            >
-              {value}
-            </div>
-          );
+            return (
+              <div   
+                key={char.key}   
+                className={`  
+                  col-span-1 p-2 text-center text-white h-16 flex items-center justify-center   
+                  transition-all duration-500 ease-in-out  
+                  ${getComparisonColor(attempt.comparison[char.key])}  
+                  ${attemptRevealed[char.key] ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}  
+                `}  
+              >  
+                {value}  
+              </div>  
+            );
         })}
       </div>
     );
@@ -186,7 +234,7 @@ const SearchBar = ({ data }) => {
               <div className="col-span-1">Skillset</div>
               <div className="col-span-1">Height</div>
             </div>
-            {attempts.map((attempt, index) => renderAttempt(attempt))}
+            {attempts.map((attempt, index) => renderAttempt(attempt, index))}
           </div>
         </div>
       ) : ( <div>Loading...</div>
