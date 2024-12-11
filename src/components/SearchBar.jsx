@@ -115,9 +115,8 @@ const SearchBar = ({ data }) => {
           <img 
             src={`/assets/img/heroes_icon/${attempt.hero.icon}`} 
             alt={attempt.hero.name} 
-            className="w-12 h-12 rounded-full mr-2"
+            className="w-12 h-12 rounded-xl mr-2"
           />
-          <span className="text-white truncate">{attempt.hero.name}</span>
         </div>
         {characteristics.map((char) => {
           const value = char.key === 'lane' 
