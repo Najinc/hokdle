@@ -11,7 +11,7 @@ node_modules
 dist
 dist-ssr
 *.local
-./public/assets/style/app.css
+public/assets/style/app.css
 
 # Editor directories and files
 .vscode/*

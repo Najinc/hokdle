@@ -50,6 +50,7 @@ export default function Navbar() {
                 className="hover-border transition-all ease-out delay-100 rounded-md flex items-center text-2xl font-radikal text-white hover:text-[#F4D28F]"
               >
                 <span>Help</span>
+                <span className="ml-2 bg-red-500 text-white text-xs font-semibold px-2 py-1 rounded-full">Soon</span>
               </Link>
             </div>
           </div>
