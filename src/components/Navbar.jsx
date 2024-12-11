@@ -23,9 +23,9 @@ export default function Navbar() {
             </Link>
           </div>
 
-          {/* Desktop Menu */}
+          {/* MODE PC*/}
           <div className="hidden md:block">
-            <div className="ml-10 flex items-baseline space-x-4 select-none">
+            <div className="ml-10 flex items-baseline space-x-9 select-none">
               <Link 
                 to="/" 
                 className="hover-border transition-all ease-out delay-100 rounded-md flex items-center text-2xl font-radikal font-light text-white hover:text-[#F4D28F]"
@@ -34,9 +34,10 @@ export default function Navbar() {
               </Link>
               <Link 
                 to="/daily" 
-                className="hover-border transition-all ease-out delay-100 rounded-md flex items-center text-2xl font-radikal text-white hover:text-[#F4D28F]"
+                className="hover-border transition-all ease-out delay-100 rounded-md flex items-center text-2xl font-radikal text-white hover:text-[#F4D28F] relative"
               >
                 <span>Classic</span>
+                <span className="ml-2 bg-red-500 text-white text-xs font-semibold px-2 py-1 rounded-full">Soon</span>
               </Link>
               <Link 
                 to="/infinity" 
@@ -53,7 +54,7 @@ export default function Navbar() {
             </div>
           </div>
 
-          {/* Mobile Menu Button */}
+          {/* MODE MOBILE */}
           <div className="-mr-2 flex md:hidden">
             <button
               onClick={toggleMenu}
@@ -77,9 +78,10 @@ export default function Navbar() {
               </Link>
               <Link 
                 to="/daily" 
-                className="hover-border hover:bg-[#f2be61] block px-3 py-2 rounded-md flex items-center text-[#8f6721]"
+                className="hover-border hover:bg-[#f2be61] block px-3 py-2 rounded-md flex items-center text-[#8f6721] relative"
               >
                 <FaGamepad className="mr-2" /> <span>Daily</span>
+                <span className="ml-2 bg-red-500 text-white text-xs font-semibold px-2 py-1 rounded-full">Soon</span>
               </Link>
               <Link 
                 to="/unlimited" 

@@ -1,6 +1,7 @@
 import React from 'react'
 import { Route, Switch } from 'wouter'
-import mainPage from './views/mainPage'
+import Home from './views/Home'
+import Infinity from './views/Infinity'
 import Navbar from './components/navbar'
 
 function App() {
@@ -8,7 +9,8 @@ function App() {
     <>
     <Navbar />
       <Switch>
-        <Route path="/" component={mainPage}/>
+        <Route path="/" component={Home}/>
+        <Route path="/infinity" component={Infinity}/>
       </Switch>
     </>
   )
